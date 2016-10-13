@@ -1,0 +1,32 @@
+.cardList {
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0;
+  list-style: none;
+
+  @media screen and (min-width: 64rem) {
+    flex-flow: row nowrap;
+  }
+}
+
+.card {
+  flex: 1 0 auto;
+
+  //Debug
+  & + & {
+    border-left: 1px solid lightgrey;
+  }
+}
+
+.descriptions {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+}
+
+.weatherIcon {
+  //Debug
+  width: 50%;
+  height: 50px;
+  border: 1px black solid;
+}

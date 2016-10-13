@@ -1,0 +1,46 @@
+{
+  "name": "weekly-weather",
+  "version": "1.0.0",
+  "description": "Quick and easy weekly weather forecasting using the Open Weather Map API.",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --inline --hot",
+    "build": "webpack -p",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seoyoon94/weekly-weather.git"
+  },
+  "keywords": [
+    "Weather",
+    "Forecast"
+  ],
+  "author": "Seoyoon Park",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/seoyoon94/weekly-weather/issues"
+  },
+  "homepage": "https://github.com/seoyoon94/weekly-weather#readme",
+  "dependencies": {
+    "react": "^15.3.2",
+    "react-dom": "^15.3.2",
+    "react-router": "^2.8.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.16.0",
+    "babel-preset-react": "^6.16.0",
+    "css-loader": "^0.25.0",
+    "fs": "0.0.1-security",
+    "html-webpack-plugin": "^2.22.0",
+    "node-sass": "^3.10.1",
+    "path": "^0.12.7",
+    "resolve-url-loader": "^1.6.0",
+    "sass-loader": "^4.0.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.2",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

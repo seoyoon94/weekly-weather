@@ -1,0 +1,53 @@
+@mixin font-size($fs-map, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: $fs-font-size;
+    }
+    @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: $fs-font-size;
+      }
+    }
+  }
+}
+
+@mixin heading-size($header-num, $fs-map: $p-font-sizes, $fs-breakpoints: $breakpoints) {
+  @each $fs-breakpoint, $fs-font-size in $fs-map {
+    @if $fs-breakpoint == null {
+      font-size: make-heading-size($header-num, $fs-font-size);
+    }
+    @else {
+      @if map-has-key($fs-breakpoints, $fs-breakpoint) {
+        $fs-breakpoint: map-get($fs-breakpoints, $fs-breakpoint);
+      }
+      @media screen and (min-width: $fs-breakpoint) {
+        font-size: make-heading-size($header-num, $fs-font-size);
+      }
+    }
+  }
+}
+
+@mixin header-font-family {
+  font-family: $font-stack-alt;
+}
+
+@function make-heading-size($header-num, $font-size) {
+  @if $header-num == 0 {
+    @return $font-size;
+  }
+
+  @return make-heading-size($header-num - 1, $font-size * $font-ratio);
+}
+
+@mixin border-left($radius: $border-radius) {
+  border-top-left-radius: $radius;
+  border-bottom-left-radius: $radius;
+}
+
+@mixin border-right($radius: $border-radius) {
+  border-top-right-radius: $radius;
+  border-bottom-right-radius: $radius;
+}

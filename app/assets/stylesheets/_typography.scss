@@ -1,0 +1,17 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|Roboto:400,700');
+
+h1 {
+  @include header-font-family;
+  @include heading-size(3);
+}
+
+h2 {
+  @include header-font-family;
+  @include heading-size(2);
+}
+
+h3 {
+  @include header-font-family;
+  @include heading-size(1);
+}
+

@@ -1,0 +1,34 @@
+@import '../../assets/stylesheets/variables';
+@import '../../assets/stylesheets/mixins';
+
+.searchBar {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2em 0;
+}
+
+.search {
+  @include border-left;
+  background: white;
+  flex: 1;
+  padding: 1rem;
+
+  @media screen and (min-width: 45em) {
+    width: 100%;
+  }
+}
+
+.searchButton {
+  @include border-right;
+  background: $brand-secondary;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 1em;
+  cursor: pointer;
+}
+
+.searchIcon {
+  fill: $brand-primary;
+}
+

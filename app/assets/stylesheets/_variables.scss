@@ -1,0 +1,21 @@
+$font-stack: 'Open Sans', sans-serif;
+$font-stack-alt: 'Roboto', sans-serif;
+$font-ratio: 1.414;
+
+$brand-primary: #3a6fff;
+$brand-secondary: #ffa500;
+
+$border-radius: 3px;
+
+$breakpoints: (
+  small: 30em,
+  medium: 45em,
+  large: 64em
+);
+
+$p-font-sizes: (
+  null: 15px,
+  small: 16px,
+  medium: 17px,
+  large: 19px
+);
