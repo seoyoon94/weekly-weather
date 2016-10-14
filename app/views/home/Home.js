@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { CardContainer } from '../../containers/index';
+import { CityContainer } from '../../containers/index';
 import { Header, Hero } from '../../components/index';
 
 class Home extends React.Component {
@@ -9,7 +9,7 @@ class Home extends React.Component {
       <div>
         <Header />
         <Hero />
-        <CardContainer />
+        <CityContainer />
       </div>
     );
   }

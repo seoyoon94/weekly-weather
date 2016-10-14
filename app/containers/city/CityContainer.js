@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
+
 import { Weather } from '../../helpers/index';
+import { City, Loading } from '../../components/index';
 
-import { CardList, Loading } from '../../components/index';
-
-class CardContainer extends React.Component {
+class CityContainer extends React.Component {
   constructor(props) {
     super(props);
     this.weather = new Weather();
@@ -25,7 +25,7 @@ class CardContainer extends React.Component {
   render() {
     if(this.state.data) {
       return (
-        <CardList data={this.state.data}/>
+        <City data={this.state.data}/>
       );
     }
     else {
@@ -36,4 +36,4 @@ class CardContainer extends React.Component {
   }
 }
 
-export default CardContainer;
+export default CityContainer;
