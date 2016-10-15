@@ -1,4 +1,7 @@
 .city {
+  padding: 1em 0;
+  border: 1px solid lightgrey;
+
   @media screen and (min-width: 75em) {
     margin: 0 auto;
     max-width: 75em;
