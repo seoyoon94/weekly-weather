@@ -1,14 +1,14 @@
 import React from 'react';
 import styles from './hero.scss';
 
-import { Input } from '../index';
+import { InputContainer } from '../../containers';
 
 const HeroHeader = () => {
   return (
     <div className={styles.heroHeader}>
       <h1>Weekly Weather</h1>
       <p>A simple weather tool for easy trip planning</p>
-      <Input />
+      <InputContainer />
     </div>
   );
 };

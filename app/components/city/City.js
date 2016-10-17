@@ -1,12 +1,22 @@
 import React, { PropTypes } from 'react';
 
 import styles from './city.scss';
+import { RemoveButton } from '../../containers';
 import { CardList } from '../index';
+
+const CityHeader = (props) => {
+  return (
+    <div>
+      <h2><span>{props.city}</span>, {props.country}</h2>
+      <RemoveButton city={props.city} country={props.country}>Remove</RemoveButton>
+    </div>
+  );
+}
 
 const City = (props) => {
   return (
     <div className={styles.city}>
-      <h2><span>{props.data.city.name}</span>, {props.data.city.country}</h2>
+      <CityHeader city={props.data.city.name} country={props.data.city.country} />
       <CardList {...props}/>
     </div>
   );

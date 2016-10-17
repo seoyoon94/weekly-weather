@@ -1,13 +1,24 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import styles from './button.scss';
 
+import { removeCity } from '../../actions';
+
 class Button extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   render() {
     return (
-      <button type='button'>
+      <button type='button' onClick={() => this.props.handleClick(this.props.city, this.props.country)}>
+        {this.props.children}
       </button>
     );
   }
+};
+
+Button.propTypes = {
+  handleClick: PropTypes.func.isRequired
 };
 
 export default Button;
