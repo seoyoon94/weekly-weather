@@ -1,7 +1,8 @@
-export { Button } from './button/index';
-export { Card, CardList } from './card/index';
-export { City, CityList } from './city/index';
-export { Header } from './header/index';
-export { Hero } from './hero/index';
-export { Input } from './input/index';
-export { Loading } from './loading/index';
+export { Button } from './button';
+export { Card, CardList } from './card';
+export { City, CityList } from './city';
+export { Header } from './header';
+export { Hero } from './hero';
+export { Input } from './input';
+export { Loading } from './loading';
+export { Modal } from './modal';

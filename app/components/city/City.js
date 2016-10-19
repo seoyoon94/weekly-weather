@@ -6,7 +6,7 @@ import { CardList } from '../index';
 
 const CityHeader = (props) => {
   return (
-    <div>
+    <div className={styles.header}>
       <h2><span>{props.city}</span>, {props.country}</h2>
       <RemoveButton city={props.city} country={props.country}>Remove</RemoveButton>
     </div>

@@ -1,22 +1,23 @@
 import * as ActionTypes from '../actions';
+import { combineReducers } from 'redux';
 import _ from 'lodash';
 
 //TODO: Change remove function so it takes cities by ID.
+//BUG: If country is omitted, country is undefined
+//TODO: Add data reducer and format data action so the
+//      returned API data will be in line with the preferences
+//      so the data can be easily mapped in the card.
 
-const citiesByName = (state = {}, action) => {
+export const citiesByName = (state = {}, action) => {
   switch(action.type) {
     case ActionTypes.REQUEST_WEATHER:
     case ActionTypes.RECEIVE_WEATHER:
     case ActionTypes.ERROR:
-      let city = action.payload.city + action.payload.country;
-      return Object.assign({}, state, {
-        [city]: cities(state[city], action)
-      });
+      let cityName = action.payload.city + action.payload.country;
+      return Object.assign({}, state, { [cityName]: city(state[city], action) });
       break;
     case ActionTypes.REMOVE_CITY:
       let key = action.payload.city + " " + action.payload.country;
-      console.log(state );
-      console.log(key);
       return _.omit(state, key);
         break;
     default:
@@ -24,17 +25,18 @@ const citiesByName = (state = {}, action) => {
   }
 };
 
-const cities = (state = {
+const city = (state = {
   isFetching: false, 
   data: {}
-}, action) => {
-  switch(action.type) {
+}, action) => { switch(action.type) {
     case ActionTypes.REQUEST_WEATHER:
       return Object.assign({}, state, {
         isFetching: true
       });
       break;
     case ActionTypes.RECEIVE_WEATHER:
+      let data = action.payload.data;
+      console.log(data);
       return Object.assign({}, state, {
         isFetching: false,
         data: action.payload.data
@@ -51,4 +53,22 @@ const cities = (state = {
   }
 };
 
-export default citiesByName;
+export const preferences = (state = {
+  format: true,
+  daytemp: false,
+  nighttemp: false,
+  pressure: false,
+  humidity: true,
+  description: true,
+  windspeed: false,
+  winddirection: false
+}, action) => {
+  switch(action.type) {
+    case ActionTypes.SAVE_PREFERENCES:
+      return {
+        ...action.payload.preferences
+      };
+    default:
+      return state;
+  }
+};

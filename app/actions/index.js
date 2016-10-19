@@ -4,8 +4,7 @@ export const ERROR = 'ERROR';
 export const REMOVE_CITY = 'REMOVE_CITY';
 
 const requestWeather = (city, country) => {
-  return {
-    type: REQUEST_WEATHER,
+  return { type: REQUEST_WEATHER,
     payload: {
       city,
       country
@@ -65,6 +64,16 @@ export const removeCity = (city, country) => {
     payload: {
       city,
       country
+    }
+  };
+};
+
+export const SAVE_PREFERENCES = 'SAVE_PREFERENCES';
+export const savePreferences = (preferences) => {
+  return {
+    type: SAVE_PREFERENCES,
+    payload: {
+      preferences
     }
   };
 };

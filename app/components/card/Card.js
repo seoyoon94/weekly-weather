@@ -15,24 +15,48 @@ function formatDate(timestamp) {
   };
 }
 
-const Card = (props) => {
-  let date = formatDate(props.data.dt);
-  return (
-    <li className={styles.card}>
-      <ul className={styles.descriptions}>
-        <li>{date.dayOfWeek}</li>
-        <li>{date.month}/{date.day}/{date.year}</li>
-        <img src="" className={styles.weatherIcon} />
-        <li><span>Temp:</span> {props.data.temp.day}</li>
-        <li><span>Humidity:</span> {props.data.humidity}</li>
-        <li><span>Forecast:</span> {props.data.weather[0].main}</li>
-      </ul>
-    </li>
-  );
+class Card extends React.Component {
+  constructor(props) {
+    super(props);
+    this.renderData = this.renderData.bind(this);
+  }
+
+  renderData() {
+    let { data } = this.props;
+    let filteredData = {
+      daytemp: data.temp.day,
+      nighttemp: data.temp.eve,
+      pressure: data.pressure,
+      humidity: data.humidity,
+      description: data.weather[0].description,
+      windspeed: data.speed,
+      winddirection: data.deg
+    };
+
+    return Object.keys(filteredData)
+      .filter(prop => this.props.preferences[prop])
+      .map(prop => <li key={prop}><span>{prop}:</span> {filteredData[prop]}</li>);
+  }
+
+
+  render() {
+    let date = formatDate(this.props.data.dt);
+    return (
+      <li className={styles.card}>
+        <ul className={styles.descriptions}>
+          <li>{date.dayOfWeek}</li>
+          <li>{date.month}/{date.day}/{date.year}</li>
+          <img src="" className={styles.weatherIcon} />
+          {this.renderData()}
+        </ul>
+      </li>
+    );
+  }
 }
 
 Card.propTypes = {
-  data: PropTypes.object.isRequired
+  data: PropTypes.object.isRequired,
+  preferences: PropTypes.object.isRequired
 };
 
 export default Card;

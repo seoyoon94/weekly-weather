@@ -14,7 +14,7 @@ const CityList = (props) => {
       <Loading key={city}/>
     );
   }
-  
+
   return (
     <div>
       {Object.keys(props.cities).map(city => renderCity(props.cities[city]))}

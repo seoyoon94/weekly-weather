@@ -2,10 +2,11 @@ import { createStore, applyMiddleware } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import { combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import rootReducer from '../reducers';
+import { citiesByName, preferences } from '../reducers';
 
 const mainReducer = combineReducers({
-  cities: rootReducer,
+  citiesByName,
+  preferences,
   routing: routerReducer
 });
 

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Button } from '../../components';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { Button } from '../../components';
 import { removeCity } from '../../actions';
 
 const mapDispatchToProps = (dispatch, getState) => {
   return {
-    handleClick: (city, country) => dispatch(removeCity(city, country))
+    handleClick: bindActionCreators(removeCity, dispatch)
   };
 };
 

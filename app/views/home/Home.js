@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { CitiesContainer } from '../../containers';
-import { Header, Hero } from '../../components';
+import { Header, Hero, Modal } from '../../components';
 
 class Home extends React.Component {
   constructor(props) {
@@ -14,6 +14,7 @@ class Home extends React.Component {
         <Header />
         <Hero />
         <CitiesContainer />
+        {this.props.children}
       </div>
     );
   }
