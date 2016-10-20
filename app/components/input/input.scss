@@ -12,6 +12,11 @@
   background: white;
   flex: 1;
   padding: 1rem;
+  border: 1px solid $brand-primary;
+
+  &:focus, &:hover, &:active {
+    border: 1px solid $brand-secondary;
+  }
 
   @media screen and (min-width: 45em) {
     width: 100%;
@@ -26,9 +31,19 @@
   align-items: center;
   padding: 0 1em;
   cursor: pointer;
+  transition: all 500ms ease-in-out;
+  
+  &:hover {
+    box-shadow: inset 0 0 1px black;
+    
+    & > .searchIcon {
+      transform: scale(1.3);
+    }
+  }
 }
 
 .searchIcon {
   fill: $brand-primary;
+  transition: all 500ms ease-in-out;
 }
 

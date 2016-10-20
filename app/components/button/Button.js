@@ -10,7 +10,10 @@ class Button extends React.Component {
 
   render() {
     return (
-      <button type='button' onClick={() => this.props.handleClick(this.props.city, this.props.country)}>
+      <button 
+        type='button' 
+        onClick={() => this.props.handleClick(this.props.id)}
+        className={styles.remove}>
         {this.props.children}
       </button>
     );

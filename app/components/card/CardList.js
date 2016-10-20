@@ -4,10 +4,10 @@ import { FilteredCard } from '../../containers';
 
 import styles from './card.scss';
 
-const CardList = (props) => {
+const CardList = ({data}) => {
   return (
     <ul className={styles.cardList}>
-      {props.data.list.map((data, index) => <FilteredCard key={index} data={data}/>)}
+      {data.list.map((day, index) => <FilteredCard key={index} data={day}/>)}
     </ul>
   );
 }

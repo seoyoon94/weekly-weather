@@ -3,27 +3,28 @@ import City from './City';
 import { Loading } from '../loading'
 
 const CityList = (props) => {
-  const renderCity = (city) => {
-    if(city.data.city) {
+  const renderCity = ({data, isFetching}) => {
+    if(data.city) {
       return (
-        <City key={city.data.city.id} data={city.data} />
+        <City key={data.city.id} data={data} />
       );
     }
 
     return (
-      <Loading key={city}/>
+      <Loading key={data}/>
     );
   }
 
+  let { citiesById } = props;
   return (
     <div>
-      {Object.keys(props.cities).map(city => renderCity(props.cities[city]))}
+      {Object.keys(citiesById).map(cityId => renderCity(citiesById[cityId]))}
     </div>
   );
 }
 
 CityList.propTypes = {
-  cities: PropTypes.object.isRequired
+  citiesById: PropTypes.object.isRequired
 };
 
 export default CityList;

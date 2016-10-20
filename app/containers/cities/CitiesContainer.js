@@ -5,7 +5,7 @@ import { CityList, Loading } from '../../components';
 
 const mapStateToProps = (state, ownProps) => {
   return {
-    cities: state.citiesByName
+    citiesById: state.citiesById
   };
 }
 

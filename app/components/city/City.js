@@ -8,15 +8,16 @@ const CityHeader = (props) => {
   return (
     <div className={styles.header}>
       <h2><span>{props.city}</span>, {props.country}</h2>
-      <RemoveButton city={props.city} country={props.country}>Remove</RemoveButton>
+      <RemoveButton id={props.id}>Remove</RemoveButton>
     </div>
   );
 }
 
 const City = (props) => {
+  let { data } = props;
   return (
     <div className={styles.city}>
-      <CityHeader city={props.data.city.name} country={props.data.city.country} />
+      <CityHeader city={data.city.name} country={data.city.country} id={data.city.id}/>
       <CardList {...props}/>
     </div>
   );

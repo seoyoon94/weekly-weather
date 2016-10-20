@@ -6,3 +6,4 @@ export { Hero } from './hero';
 export { Input } from './input';
 export { Loading } from './loading';
 export { Modal } from './modal';
+export { ToggleSwitch } from './toggle-switch';

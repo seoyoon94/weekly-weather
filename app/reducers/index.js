@@ -8,17 +8,19 @@ import _ from 'lodash';
 //      returned API data will be in line with the preferences
 //      so the data can be easily mapped in the card.
 
-export const citiesByName = (state = {}, action) => {
+export const citiesById = (state = {}, action) => {
   switch(action.type) {
     case ActionTypes.REQUEST_WEATHER:
     case ActionTypes.RECEIVE_WEATHER:
     case ActionTypes.ERROR:
-      let cityName = action.payload.city + action.payload.country;
-      return Object.assign({}, state, { [cityName]: city(state[city], action) });
+      let cityID = action.payload.id;
+      if(cityID) {
+        return Object.assign({}, state, { [cityID]: city(state[cityID], action) });
+      }
+      return state;
       break;
     case ActionTypes.REMOVE_CITY:
-      let key = action.payload.city + " " + action.payload.country;
-      return _.omit(state, key);
+      return _.omit(state, action.payload.id);
         break;
     default:
       return state;
@@ -36,7 +38,6 @@ const city = (state = {
       break;
     case ActionTypes.RECEIVE_WEATHER:
       let data = action.payload.data;
-      console.log(data);
       return Object.assign({}, state, {
         isFetching: false,
         data: action.payload.data

@@ -1,29 +1,13 @@
 import React, { PropTypes } from 'react';
 import styles from './modal.scss';
 
-//TODO: When submit button is pressed, local state changes should
-//      be saved into persistent storage.
-//
+import { ToggleSwitch } from '..';
+
 //TODO: Make an input component that will accept props for the name
 //      and dynamically create input forms utilizing computed property
 //      keys by mapping over the state keys.
 //
-//TODO: Change the Cards to show only information that is stored in 
-//      preferences.
 
-const Checkbox = (props) => {
-  return (
-    <div>
-      <label htmlFor={props.name}>{props.children}: </label>
-      <input 
-        type="checkbox" 
-        id={props.name} 
-        name={props.name} 
-        checked={props.checked} 
-        onChange={props.onChange} />
-    </div>
-  );
-};
 
 class ModalOverlay extends React.Component {
   render() {
@@ -61,10 +45,6 @@ class Modal extends React.Component {
     this.context.router.push('/');
   }
 
-  renderCheckboxes() {
-    
-  }
-
   render() {
     let { savePreferences } = this.props;
     let state = this.state;
@@ -74,57 +54,57 @@ class Modal extends React.Component {
           <form onSubmit={this.onSavePreferences}>
             <fieldset>
               <legend>Temperatures:</legend>
-              <Checkbox 
+              <ToggleSwitch 
                 name="format" 
                 checked={state.format} 
                 onChange={this.toggleChecked}>
                 Format
-              </Checkbox>
-              <Checkbox 
+              </ToggleSwitch>
+              <ToggleSwitch 
                 name="daytemp" 
                 checked={state.daytemp} 
                 onChange={this.toggleChecked}>
                 Day Temperature
-              </Checkbox>
-              <Checkbox 
+              </ToggleSwitch>
+              <ToggleSwitch 
                 name="nighttemp" 
                 checked={state.nighttemp} 
                 onChange={this.toggleChecked}>
                 Night Temperature
-              </Checkbox>
+              </ToggleSwitch>
             </fieldset>
             <fieldset>
               <legend>Weather Conditions:</legend>
-              <Checkbox 
+              <ToggleSwitch 
                 name="description" 
                 checked={state.description}
                 onChange={this.toggleChecked}>
                 Forecast
-              </Checkbox>
-              <Checkbox 
+              </ToggleSwitch>
+              <ToggleSwitch 
                 name="pressure" 
                 checked={state.pressure}
                 onChange={this.toggleChecked}>
                 Pressure
-              </Checkbox>
-              <Checkbox 
+              </ToggleSwitch>
+              <ToggleSwitch 
                 name="humidity" 
                 checked={state.humidity}
                 onChange={this.toggleChecked}>
                 Humidity
-              </Checkbox> 
-              <Checkbox 
+              </ToggleSwitch> 
+              <ToggleSwitch 
                 name="windspeed" 
                 checked={state.windspeed}
                 onChange={this.toggleChecked}>
                 Wind Speed
-              </Checkbox>
-              <Checkbox 
+              </ToggleSwitch>
+              <ToggleSwitch 
                 name="winddirection" 
                 checked={state.winddirection}
                 onChange={this.toggleChecked}>
                 Wind Direction
-              </Checkbox>
+              </ToggleSwitch>
             </fieldset>
             <button type="submit">OK</button>
           </form>

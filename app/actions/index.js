@@ -4,20 +4,20 @@ export const ERROR = 'ERROR';
 export const REMOVE_CITY = 'REMOVE_CITY';
 
 const requestWeather = (city, country) => {
-  return { type: REQUEST_WEATHER,
+  return { 
+    type: REQUEST_WEATHER,
     payload: {
       city,
       country
-    }
-  };
-};
+    } 
+  }; 
+}; 
 
-const receiveWeather = (city, country, data) => {
+const receiveWeather = (id, data) => {
   return {
     type: RECEIVE_WEATHER,
     payload: {
-      city,
-      country,
+      id,
       data
     }
   };
@@ -54,16 +54,15 @@ export const loadWeather = (city, country) => (dispatch, getState)  => {
       }
       return response.json();
     })
-    .then(data => dispatch(receiveWeather(city, country, data)))
+    .then(data => dispatch(receiveWeather(data.city.id, data)))
     .catch(err => dispatch(receiveError(err)));
 };
 
-export const removeCity = (city, country) => {
+export const removeCity = (id) => {
   return {
     type: REMOVE_CITY,
     payload: {
-      city,
-      country
+      id
     }
   };
 };
