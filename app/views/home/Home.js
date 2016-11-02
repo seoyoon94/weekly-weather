@@ -1,8 +1,6 @@
 import React from 'react';
 
-import { Cities } from '../../City';
-import { Header } from '../../Header';
-import { Hero } from '../../Hero';
+import { Cities, Header, Hero } from '../../ui';
 
 class Home extends React.Component {
   constructor(props) {

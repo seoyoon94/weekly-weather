@@ -5,14 +5,14 @@ import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
 import { browserHistory } from 'react-router';
 
 import configureStore from './store';
-import Root from './Root';
+import Routes from './Routes';
 
-require('./assets/stylesheets/main.scss');
+require('./ui/assets/css/main.scss');
 
 const store = configureStore();
 const history = syncHistoryWithStore(browserHistory, store);
 
 ReactDOM.render(
-  <Root store={store} history={history}/>,
+  <Routes store={store} history={history}/>,
   document.getElementById('root')
 );

@@ -2,10 +2,10 @@ import React, { PropTypes } from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 
-import { Home } from './views/index';
-import * as Modal from './Modal';
+import { Home } from './views';
+import { Modal } from './ui';
 
-const Root = ({store, history}) =>  {
+const Routes = ({store, history}) =>  {
   return (
     <Provider store={store}>
       <Router history={browserHistory}>
@@ -18,9 +18,9 @@ const Root = ({store, history}) =>  {
   );
 }
 
-Root.propTypes = {
+Routes.propTypes = {
   store: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired
 };
 
-export default Root;
+export default Routes;

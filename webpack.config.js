@@ -7,7 +7,7 @@ let HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
 });
 
 module.exports = {
-  entry: './app/index.js',
+  entry: './app/App.js',
 
   output: {
     filename: 'bundle.js',
